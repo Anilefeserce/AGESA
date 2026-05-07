@@ -35,7 +35,7 @@
     }
 
     .page {
-      width: min(1320px, calc(100% - 32px));
+      width: min(1520px, calc(100% - 32px));
       margin: 0 auto;
       padding: 24px 0 40px;
     }
@@ -81,9 +81,14 @@
       white-space: nowrap;
     }
 
+    button {
+      font: inherit;
+      touch-action: manipulation;
+    }
+
     .mockup-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(300px, 1fr));
+      grid-template-columns: repeat(4, minmax(280px, 1fr));
       gap: 20px;
       align-items: start;
     }
@@ -388,6 +393,10 @@
       box-shadow: 0 1px 4px rgba(17, 19, 24, 0.12);
     }
 
+    .tab:active {
+      transform: translateY(1px);
+    }
+
     .chart {
       height: 132px;
       display: flex;
@@ -404,6 +413,7 @@
       border-radius: 6px 6px 0 0;
       background: var(--ak-red);
       opacity: var(--o);
+      transition: height 220ms ease, opacity 220ms ease;
     }
 
     .quick-actions {
@@ -711,6 +721,128 @@
       line-height: 1.35;
     }
 
+    .assistant-hero .headline {
+      font-size: 24px;
+      line-height: 1.08;
+    }
+
+    .profile-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .profile-fact {
+      min-height: 58px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcfe;
+      padding: 8px;
+    }
+
+    .profile-fact span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.2;
+    }
+
+    .profile-fact strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      line-height: 1.15;
+    }
+
+    .quick-question-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .question-chip {
+      min-height: 48px;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--ink);
+      padding: 10px 12px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.25;
+      cursor: pointer;
+    }
+
+    .question-chip.active {
+      border-color: var(--ak-red);
+      background: #fff0f1;
+      color: var(--ak-red);
+    }
+
+    .chat-panel {
+      min-height: 250px;
+    }
+
+    .chat-thread {
+      display: grid;
+      gap: 10px;
+    }
+
+    .chat-row {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 8px;
+      align-items: end;
+    }
+
+    .chat-row.user {
+      grid-template-columns: 1fr;
+    }
+
+    .assistant-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #f8e7e8;
+      color: var(--ak-red);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .chat-bubble {
+      margin: 0;
+      border-radius: 14px 14px 14px 4px;
+      background: #f7f8fb;
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      color: var(--ink);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .chat-row.user .chat-bubble {
+      justify-self: end;
+      max-width: 86%;
+      border-color: #111318;
+      border-radius: 14px 14px 4px 14px;
+      background: #111318;
+      color: #fff;
+    }
+
+    .assistant-note {
+      border-left: 4px solid var(--teal);
+      background: #eefafa;
+      color: #143d42;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
     .sr-only {
       position: absolute;
       width: 1px;
@@ -743,7 +875,13 @@
       box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24);
     }
 
-    @media (max-width: 1080px) {
+    @media (max-width: 1220px) {
+      .mockup-grid {
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
       .mockup-grid {
         grid-template-columns: 1fr;
       }
@@ -775,6 +913,10 @@
       .three {
         grid-template-columns: 1fr;
       }
+
+      .profile-facts {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -783,12 +925,13 @@
     <section class="brief" aria-label="Mockup ozeti">
       <div>
         <h1>AgeSA Sinerji Agi Akbank Mobil Mockup</h1>
-        <p>Uc ekranlik taslak: Tam Seffaf Dashboard, Gelecek Simulatoru ve satis sonrasi kontrol. Dil Akbank Mobil guveniyle sade, hizli ve sikmayan detay mantigina gore kuruldu.</p>
+        <p>Dort ekranlik taslak: Tam Seffaf Dashboard, Gelecek Simulatoru, satis sonrasi kontrol ve Akbank Asistan. Dil Akbank Mobil guveniyle sade, hizli ve sikmayan detay mantigina gore kuruldu.</p>
       </div>
       <div class="legend" aria-label="Tasarim notlari">
         <span>Akbank Mobil dili</span>
         <span>Olasi birikim senaryosu</span>
         <span>Ekosistemden Gelen</span>
+        <span>Hazir asistan cevaplari</span>
       </div>
     </section>
 
@@ -874,12 +1017,12 @@
                 <button type="button" data-toast-target="#dashboard-toast" data-toast-message="Fon listesi AgeSA/Akbank fon detay ekranina gider.">Fonlar</button>
               </div>
               <div class="tabs" role="tablist" aria-label="Zaman araligi">
-                <button class="tab" role="tab" aria-selected="false">1A</button>
-                <button class="tab active" role="tab" aria-selected="true">3A</button>
-                <button class="tab" role="tab" aria-selected="false">1Y</button>
-                <button class="tab" role="tab" aria-selected="false">Tum</button>
+                <button type="button" class="tab" role="tab" aria-selected="false" data-tab-group="fund-return" data-period="1m">1A</button>
+                <button type="button" class="tab active" role="tab" aria-selected="true" data-tab-group="fund-return" data-period="3m">3A</button>
+                <button type="button" class="tab" role="tab" aria-selected="false" data-tab-group="fund-return" data-period="1y">1Y</button>
+                <button type="button" class="tab" role="tab" aria-selected="false" data-tab-group="fund-return" data-period="all">Tum</button>
               </div>
-              <div class="chart" aria-label="Fon getirisi grafigi">
+              <div class="chart" id="fund-chart" aria-label="Fon getirisi grafigi">
                 <span class="bar" style="--h: 34%; --o: .38" aria-label="Hafta 1 goreceli getiri 34"></span>
                 <span class="bar" style="--h: 48%; --o: .46" aria-label="Hafta 2 goreceli getiri 48"></span>
                 <span class="bar" style="--h: 42%; --o: .54" aria-label="Hafta 3 goreceli getiri 42"></span>
@@ -888,8 +1031,8 @@
                 <span class="bar" style="--h: 80%; --o: .88" aria-label="Hafta 6 goreceli getiri 80"></span>
                 <span class="bar" style="--h: 92%; --o: 1" aria-label="Hafta 7 goreceli getiri 92"></span>
               </div>
-              <p class="sr-only">Grafik ozeti: Secili 3 aylik gorunumde fon getirisi yukari yonlu bir egilim gosterir; son bar en yuksek seviyededir.</p>
-              <p class="subtle">Fon getirisi ekosistem katkilarindan ayri gosterilir.</p>
+              <p class="sr-only" id="fund-sr">Grafik ozeti: Secili 3 aylik gorunumde fon getirisi yukari yonlu bir egilim gosterir; son bar en yuksek seviyededir.</p>
+              <p class="subtle" id="fund-summary">3 aylik gorunumde fon getirisi +%6,8. Ekosistem katkilarindan ayri gosterilir.</p>
             </section>
 
             <section class="quick-actions" aria-label="Hizli aksiyonlar">
@@ -1106,15 +1249,16 @@
                 <button type="button" data-toast-target="#control-toast" data-toast-message="Performans detayi fon getirisi ve zaman araligi bazinda acilir.">Detay</button>
               </div>
               <div class="tabs" role="tablist" aria-label="Performans zaman araligi">
-                <button class="tab active" role="tab" aria-selected="true">1A</button>
-                <button class="tab" role="tab" aria-selected="false">3A</button>
-                <button class="tab" role="tab" aria-selected="false">1Y</button>
-                <button class="tab" role="tab" aria-selected="false">Tum</button>
+                <button type="button" class="tab active" role="tab" aria-selected="true" data-tab-group="performance" data-period="1m">1A</button>
+                <button type="button" class="tab" role="tab" aria-selected="false" data-tab-group="performance" data-period="3m">3A</button>
+                <button type="button" class="tab" role="tab" aria-selected="false" data-tab-group="performance" data-period="1y">1Y</button>
+                <button type="button" class="tab" role="tab" aria-selected="false" data-tab-group="performance" data-period="all">Tum</button>
               </div>
               <div class="result-total">
-                <span>Bu ay fon performansi</span>
-                <strong>+%2.1</strong>
+                <span id="performance-label">Bu ay fon performansi</span>
+                <strong id="performance-value">+%2.1</strong>
               </div>
+              <p class="subtle" id="performance-summary">Dengeli profil icin bu ay fon performansi pozitif ilerliyor.</p>
             </section>
 
             <section class="panel">
@@ -1165,6 +1309,74 @@
           <div class="toast is-hidden" id="control-toast">Akbank Asistan bu konu icin kisa yardim akisini acabilir.</div>
         </div>
       </article>
+
+      <article class="phone-shell" aria-label="Akbank Asistan mockup">
+        <div class="phone-screen">
+          <div class="status">
+            <span>09:41</span>
+            <span class="signal"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+          </div>
+          <header class="app-bar">
+            <button class="icon-btn" aria-label="Geri">&lt;</button>
+            <div class="app-title">
+              <strong>Akbank Asistan</strong>
+              <span>AgeSA Sinerji Agi</span>
+            </div>
+            <button class="icon-btn" aria-label="Yardim">?</button>
+          </header>
+
+          <div class="content">
+            <section class="panel hero-panel assistant-hero">
+              <p class="eyebrow">Profiline gore destek</p>
+              <h2 class="headline">Anil icin net cevaplar</h2>
+              <p class="subtle">22 yas, 1.000 TL aylik katki ve dengeli otopilot senaryosuna gore kisa cevaplar hazirlandi.</p>
+              <div class="profile-facts" aria-label="Profil ozeti">
+                <div class="profile-fact">
+                  <span>Yas</span>
+                  <strong>22</strong>
+                </div>
+                <div class="profile-fact">
+                  <span>Aylik katki</span>
+                  <strong>1.000 TL</strong>
+                </div>
+                <div class="profile-fact">
+                  <span>Profil</span>
+                  <strong>Dengeli</strong>
+                </div>
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="section-title">
+                <h2>Hizli sorular</h2>
+                <button type="button" id="chat-reset">Temizle</button>
+              </div>
+              <div class="quick-question-list" aria-label="Akbank Asistan hizli sorular">
+                <button type="button" class="question-chip" data-chat-question="Benim icin ilk adim ne?" data-chat-answer="Anil, baslangic icin 1.000 TL aylik katki ve dengeli otopilot iyi bir deneme senaryosu. Once 3 ay duzenli katkini izle, sonra katkini 100-250 TL araliginda artirma opsiyonunu degerlendir.">Benim icin ilk adim ne?</button>
+                <button type="button" class="question-chip" data-chat-question="Param kilitlenir mi?" data-chat-answer="BES uzun vadeli bir urundur; ihtiyac olursa katki payini azaltma, ara verme veya cikis adimlari vardir. Cikis kararinda devlet katkisi hak edis ve yasal kesinti detaylari ayrica kontrol edilir.">Param kilitlenir mi?</button>
+                <button type="button" class="question-chip" data-chat-question="Devlet katkisi nasil eklenir?" data-chat-answer="Aylik katkinin yaninda devlet katkisi ayri bir kalem olarak izlenir. Dashboard'daki mavi alan bu katkini fon getirisi ve ekosistem katkilarindan ayri gostermek icin tasarlandi.">Devlet katkisi nasil eklenir?</button>
+                <button type="button" class="question-chip" data-chat-question="Fon riskim uygun mu?" data-chat-answer="Dengeli profil, 22 yas ve 10 yil hedef icin baslangicta dengeli bir anlatim saglar. Daha dusuk dalgalanma istersen garantici, daha yuksek getiri potansiyeli istersen agresif profil karsilastirilabilir.">Fon riskim uygun mu?</button>
+                <button type="button" class="question-chip" data-chat-question="Ekosistem katkisi ne ise yarar?" data-chat-answer="CarrefourSA yuvarlama, Enerjisa odeme katkisi ve benzeri faydalar ana katkini tamamlayan ek desteklerdir. Bunlar fon getirisi degil, ayri takip edilen ekosistem avantajlaridir.">Ekosistem katkisi ne ise yarar?</button>
+              </div>
+            </section>
+
+            <section class="panel chat-panel" aria-live="polite">
+              <div class="chat-thread" id="chat-thread">
+                <div class="chat-row bot">
+                  <span class="assistant-mark">A</span>
+                  <p class="chat-bubble">Merhaba Anil. Profiline gore en sik sorulan konulari hazirladim.</p>
+                </div>
+                <p class="assistant-note" id="assistant-note">Onerilen ilk bakis: katkini, devlet katkisini ve ekosistemden gelen tutari ayri ayri takip et; performansta 1Y ve Tum secenekleriyle uzun vade etkisini kontrol et.</p>
+              </div>
+            </section>
+          </div>
+
+          <div class="bottom-cta">
+            <button class="primary" id="assistant-first-question">En uygun cevabi goster</button>
+          </div>
+          <div class="toast is-hidden" id="assistant-toast">Akbank Asistan hazir cevabi gosterdi.</div>
+        </div>
+      </article>
     </section>
   </main>
   <script>
@@ -1189,6 +1401,52 @@
       guaranteed: "Garantici",
       balanced: "Dengeli",
       dynamic: "Agresif"
+    };
+
+    const fundReturnByPeriod = {
+      "1m": {
+        bars: [28, 34, 31, 44, 39, 52, 61],
+        summary: "1 aylik gorunumde fon getirisi +%2,1. Kisa vadeli dalgalanma ayrica izlenir.",
+        sr: "Grafik ozeti: Secili 1 aylik gorunumde fon getirisi kademeli yukselir ve son bar en yuksek seviyededir."
+      },
+      "3m": {
+        bars: [34, 48, 42, 58, 72, 80, 92],
+        summary: "3 aylik gorunumde fon getirisi +%6,8. Ekosistem katkilarindan ayri gosterilir.",
+        sr: "Grafik ozeti: Secili 3 aylik gorunumde fon getirisi yukari yonlu bir egilim gosterir; son bar en yuksek seviyededir."
+      },
+      "1y": {
+        bars: [26, 40, 54, 48, 66, 78, 88],
+        summary: "1 yillik gorunumde fon getirisi +%18,4. Uzun vade etkisi daha belirginlesir.",
+        sr: "Grafik ozeti: Secili 1 yillik gorunumde fon getirisi yil icinde dalgalanarak artar."
+      },
+      all: {
+        bars: [22, 38, 46, 63, 58, 76, 94],
+        summary: "Tum donemde fon getirisi +%42,6. Bu oran kesin getiri vaadi degildir.",
+        sr: "Grafik ozeti: Tum donem gorunumunde fon getirisi uzun vadede yukari yonlu bir egilim gosterir."
+      }
+    };
+
+    const performanceByPeriod = {
+      "1m": {
+        label: "Bu ay fon performansi",
+        value: "+%2.1",
+        summary: "Dengeli profil icin bu ay fon performansi pozitif ilerliyor."
+      },
+      "3m": {
+        label: "Son 3 ay fon performansi",
+        value: "+%6.8",
+        summary: "Son 3 ayda dengeli dagilim hedefle uyumlu bir artis gosteriyor."
+      },
+      "1y": {
+        label: "Son 1 yil fon performansi",
+        value: "+%18.4",
+        summary: "1 yillik bakista dalgalanma azalarak hedef senaryoya yaklasiyor."
+      },
+      all: {
+        label: "Tum donem fon performansi",
+        value: "+%42.6",
+        summary: "Tum donem performansi uzun vadeli takip icin ozetlenir; kesin getiri vaadi degildir."
+      }
     };
 
     const $ = (selector) => document.querySelector(selector);
@@ -1230,6 +1488,36 @@
       });
     }
 
+    function activateTab(group, target) {
+      $$(`[data-tab-group="${group}"]`).forEach((button) => {
+        const isActive = button === target;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-selected", String(isActive));
+      });
+    }
+
+    function updateFundReturn(period) {
+      const data = fundReturnByPeriod[period];
+      if (!data) return;
+      $$("#fund-chart .bar").forEach((bar, index) => {
+        const height = data.bars[index] || data.bars[data.bars.length - 1];
+        const opacity = Math.min(1, 0.34 + (height / 100) * 0.7);
+        bar.style.setProperty("--h", `${height}%`);
+        bar.style.setProperty("--o", opacity.toFixed(2));
+        bar.setAttribute("aria-label", `Donem ${index + 1} goreceli getiri ${height}`);
+      });
+      setText("#fund-summary", data.summary);
+      setText("#fund-sr", data.sr);
+    }
+
+    function updatePerformance(period) {
+      const data = performanceByPeriod[period];
+      if (!data) return;
+      setText("#performance-label", data.label);
+      setText("#performance-value", data.value);
+      setText("#performance-summary", data.summary);
+    }
+
     function showToast(id, message) {
       const toast = $(id);
       if (!toast) return;
@@ -1239,6 +1527,39 @@
       toast.dataset.timer = window.setTimeout(() => {
         toast.classList.add("is-hidden");
       }, 2600);
+    }
+
+    function createChatRow(kind, text) {
+      const row = document.createElement("div");
+      row.className = `chat-row ${kind} dynamic`;
+
+      if (kind === "bot") {
+        const mark = document.createElement("span");
+        mark.className = "assistant-mark";
+        mark.textContent = "A";
+        row.appendChild(mark);
+      }
+
+      const bubble = document.createElement("p");
+      bubble.className = "chat-bubble";
+      bubble.textContent = text;
+      row.appendChild(bubble);
+      return row;
+    }
+
+    function showAssistantAnswer(button) {
+      const thread = $("#chat-thread");
+      if (!thread) return;
+
+      $$(".chat-row.dynamic").forEach((row) => row.remove());
+      $$(".question-chip").forEach((chip) => {
+        chip.classList.toggle("active", chip === button);
+      });
+
+      thread.appendChild(createChatRow("user", button.dataset.chatQuestion || button.textContent));
+      thread.appendChild(createChatRow("bot", button.dataset.chatAnswer || "Bu konu icin hazir cevap bulunamadi."));
+      thread.scrollTop = thread.scrollHeight;
+      showToast("#assistant-toast", "Akbank Asistan hazir cevabi gosterdi.");
     }
 
     $("#sim-minus")?.addEventListener("click", () => {
@@ -1274,6 +1595,24 @@
         state.risk = button.dataset.risk;
         activateSegment("risk", button);
         calculateScenario();
+      });
+    });
+
+    $$("[data-tab-group]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const group = button.dataset.tabGroup;
+        const period = button.dataset.period;
+        activateTab(group, button);
+
+        if (group === "fund-return") {
+          updateFundReturn(period);
+          showToast("#dashboard-toast", `${button.textContent} fon getirisi guncellendi.`);
+        }
+
+        if (group === "performance") {
+          updatePerformance(period);
+          showToast("#control-toast", `${button.textContent} performansi guncellendi.`);
+        }
       });
     });
 
@@ -1323,6 +1662,23 @@
       showToast("#control-toast", "Fon degisikligi rehberi acilir. Otopilot onerisi ve risk profili birlikte gosterilir.");
     });
 
+    $$(".question-chip").forEach((button) => {
+      button.addEventListener("click", () => {
+        showAssistantAnswer(button);
+      });
+    });
+
+    $("#assistant-first-question")?.addEventListener("click", () => {
+      const firstQuestion = $(".question-chip");
+      if (firstQuestion) showAssistantAnswer(firstQuestion);
+    });
+
+    $("#chat-reset")?.addEventListener("click", () => {
+      $$(".chat-row.dynamic").forEach((row) => row.remove());
+      $$(".question-chip").forEach((chip) => chip.classList.remove("active"));
+      showToast("#assistant-toast", "Akbank Asistan akisi temizlendi.");
+    });
+
     $$("[data-toast-target]").forEach((button) => {
       button.addEventListener("click", () => {
         showToast(button.dataset.toastTarget, button.dataset.toastMessage || "Prototip geri bildirimi.");
@@ -1330,6 +1686,8 @@
     });
 
     calculateScenario();
+    updateFundReturn("3m");
+    updatePerformance("1m");
     updateApprovalState();
   </script>
 </body>
