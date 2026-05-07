@@ -1,0 +1,9 @@
+127.0.0.1 - - [07/May/2026 07:57:23] "GET /SUNUM_DECK_Anil.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2026 07:57:23] "GET /akbank_agesa_mockup.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2026 08:02:05] "GET /akbank_agesa_mockup.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2026 08:02:05] code 404, message File not found
+127.0.0.1 - - [07/May/2026 08:02:05] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [07/May/2026 08:02:17] "GET /SUNUM_DECK_Anil.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2026 08:02:17] "GET /Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202026-05-07%20000753.png HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2026 08:02:17] "GET /WhatsApp%20Image%202026-05-06%20at%2019.21.09.jpeg HTTP/1.1" 200 -
+127.0.0.1 - - [07/May/2026 08:02:29] "GET / HTTP/1.1" 200 -
