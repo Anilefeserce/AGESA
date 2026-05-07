@@ -586,7 +586,8 @@
     .note.is-hidden,
     .detail-box.is-hidden,
     .toast.is-hidden,
-    .success-card.is-hidden {
+    .success-card.is-hidden,
+    .recommendation-card.is-hidden {
       display: none;
     }
 
@@ -719,6 +720,45 @@
       color: #315a49;
       font-size: 12px;
       line-height: 1.35;
+    }
+
+    .recommendation-card {
+      border: 1px solid #b9e2d2;
+      border-left: 4px solid var(--green);
+      background: #f4fcf8;
+      border-radius: var(--radius);
+      padding: 12px;
+      margin-top: 10px;
+    }
+
+    .recommendation-card > span {
+      display: inline-flex;
+      min-height: 24px;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0 8px;
+      background: #eaf7f1;
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .recommendation-card strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .recommendation-card p {
+      margin: 0;
+      color: #315a49;
+      font-size: 12px;
+      line-height: 1.38;
+    }
+
+    .recommendation-card .fund {
+      margin-top: 10px;
     }
 
     .assistant-hero .headline {
@@ -1166,8 +1206,9 @@
             <section class="panel">
               <div class="section-title">
                 <h2>2 onayla baslat</h2>
-                <button type="button" data-toast-target="#approval-toast" data-toast-message="Detayli sozlesme/onay metinleri Akbank/AgeSA standart akisinda tamamlanir.">Detay</button>
+                <button type="button" data-toast-target="#approval-toast" data-toast-message="Akbank veya Tosla musterisi icin uzun form yerine 2 onayla baslatma akisi sunulur.">Detay</button>
               </div>
+              <p class="subtle">Akbank veya Tosla musterisi icin uzun form yok; mevcut musteri bilgisiyle hizli baslatma akisi kullanilir.</p>
               <div class="check-list">
                 <label class="check-row">
                   <input type="checkbox" id="approval-info">
@@ -1179,8 +1220,30 @@
                 </label>
               </div>
               <div class="success-card is-hidden" id="approval-success">
-                <strong>AgeSA Sinerji Agi aktif</strong>
-                <span>Basvuru prototip seviyesinde tamamlandi. Yasal metinler Akbank/AgeSA akisinda ilerler.</span>
+                <strong>Anlasma onaylandi</strong>
+                <span>2 onayla baslatma akisi tamamlandi. Uzun form adimi yerine Akbank/Tosla mevcut musteri bilgisiyle devam edilir.</span>
+              </div>
+              <div class="recommendation-card is-hidden" id="portfolio-recommendation">
+                <span>Yapay zeka onerisi</span>
+                <strong>Portfoyun henuz yok; olusturma onerisi hazir</strong>
+                <p>Anil profiline gore dengeli bir baslangic portfoyu onerilebilir. Bu sadece taslak oneridir; portfoy ancak kullanici son onayi verdikten sonra olusur.</p>
+                <div class="fund" aria-label="Yapay zeka portfoy olusturma onerisi">
+                  <div class="fund-row">
+                    <span>Dengeli</span>
+                    <div class="rail"><i style="--w: 45%; --color: var(--ak-red)"></i></div>
+                    <span>%45</span>
+                  </div>
+                  <div class="fund-row">
+                    <span>Devlet</span>
+                    <div class="rail"><i style="--w: 35%; --color: var(--blue)"></i></div>
+                    <span>%35</span>
+                  </div>
+                  <div class="fund-row">
+                    <span>Likidite</span>
+                    <div class="rail"><i style="--w: 20%; --color: var(--green)"></i></div>
+                    <span>%20</span>
+                  </div>
+                </div>
               </div>
             </section>
           </div>
@@ -1188,7 +1251,7 @@
           <div class="bottom-cta">
             <button class="primary" id="approval-button" disabled>2 onayla baslat</button>
           </div>
-          <div class="toast is-hidden" id="approval-toast">AgeSA Sinerji Agi aktif. Onay detaylari Akbank/AgeSA akisinda tamamlanir.</div>
+          <div class="toast is-hidden" id="approval-toast">Anlasma onaylandi. Yapay zeka portfoy onerisi hazirlandi.</div>
         </div>
       </article>
 
@@ -1202,7 +1265,7 @@
             <button class="icon-btn" aria-label="Geri">&lt;</button>
             <div class="app-title">
               <strong>Birikim Kontrolu</strong>
-              <span>Otopilot ve fon takibi</span>
+              <span>Portfoy onerisi ve takip</span>
             </div>
             <button class="icon-btn" aria-label="Yardim">?</button>
           </header>
@@ -1221,24 +1284,25 @@
 
             <section class="panel">
               <div class="section-title">
-                <h2>Fon dagilimi</h2>
-                <button type="button" data-toast-target="#control-toast" data-toast-message="Fon degisikligi detay akisi Akbank/AgeSA standart onay ekranina baglanir.">Degistir</button>
+                <h2>Portfoy olusturma onerisi</h2>
+                <button type="button" data-toast-target="#control-toast" data-toast-message="Portfoy henuz olusmadi. Yapay zeka onerisi son kullanici onayina gider.">Olustur</button>
               </div>
+              <p class="subtle">Portfoy henuz yok. Anlasma onayindan sonra yapay zeka, profile uygun taslak dagilim onerir.</p>
               <div class="fund">
                 <div class="fund-row">
-                  <span>Fon A</span>
-                  <div class="rail"><i style="--w: 40%; --color: var(--ak-red)"></i></div>
-                  <span>%40</span>
+                  <span>Dengeli</span>
+                  <div class="rail"><i style="--w: 45%; --color: var(--ak-red)"></i></div>
+                  <span>%45</span>
                 </div>
                 <div class="fund-row">
-                  <span>Fon B</span>
+                  <span>Devlet</span>
                   <div class="rail"><i style="--w: 35%; --color: var(--blue)"></i></div>
                   <span>%35</span>
                 </div>
                 <div class="fund-row">
-                  <span>Fon C</span>
-                  <div class="rail"><i style="--w: 25%; --color: var(--green)"></i></div>
-                  <span>%25</span>
+                  <span>Likidite</span>
+                  <div class="rail"><i style="--w: 20%; --color: var(--green)"></i></div>
+                  <span>%20</span>
                 </div>
               </div>
             </section>
@@ -1266,7 +1330,7 @@
                 <h2>Ne degisti?</h2>
                 <button type="button" data-toast-target="#control-toast" data-toast-message="Bildirimler ve Mesajlar alaninda katki ve fon hareketleri takip edilir.">Bildirimler</button>
               </div>
-              <p class="insight">Fon dagilimin hedefinle uyumlu ilerliyor. Katkini artirman halinde hedefe daha erken ulasma senaryosu olusabilir.</p>
+              <p class="insight">Portfoy henuz olusmadi. Yapay zeka taslagi, Anil'in dengeli profil ve 10 yil hedef varsayimina gore son onaya hazirlanir.</p>
             </section>
 
             <section class="panel">
@@ -1304,7 +1368,7 @@
           </div>
 
           <div class="bottom-cta">
-            <button class="primary" id="fund-button">Fon degisikligini kesfet</button>
+            <button class="primary" id="fund-button">Portfoy onerisine bak</button>
           </div>
           <div class="toast is-hidden" id="control-toast">Akbank Asistan bu konu icin kisa yardim akisini acabilir.</div>
         </div>
@@ -1628,6 +1692,7 @@
     const approvalStart = $("#approval-start");
     const approvalButton = $("#approval-button");
     const approvalSuccess = $("#approval-success");
+    const portfolioRecommendation = $("#portfolio-recommendation");
 
     function updateApprovalState() {
       if (!approvalButton || !approvalInfo || !approvalStart) return;
@@ -1640,7 +1705,8 @@
 
     approvalButton?.addEventListener("click", () => {
       approvalSuccess?.classList.remove("is-hidden");
-      showToast("#approval-toast", "AgeSA Sinerji Agi aktif. Onay detaylari Akbank/AgeSA akisinda tamamlanir.");
+      portfolioRecommendation?.classList.remove("is-hidden");
+      showToast("#approval-toast", "Anlasma onaylandi. Yapay zeka portfoy olusturma onerisi hazir.");
     });
 
     const autopilotProfiles = ["Garantici", "Dengeli", "Agresif"];
@@ -1659,7 +1725,7 @@
     });
 
     $("#fund-button")?.addEventListener("click", () => {
-      showToast("#control-toast", "Fon degisikligi rehberi acilir. Otopilot onerisi ve risk profili birlikte gosterilir.");
+      showToast("#control-toast", "Portfoy henuz yok. Yapay zeka olusturma onerisi son onay ekranina gider.");
     });
 
     $$(".question-chip").forEach((button) => {
